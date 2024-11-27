@@ -10,7 +10,7 @@ export class CoursePage {
   constructor(page: Page) {
     this.page = page;
     this.courseCardQA = page.getByRole('link', { name: 'Pici University Buffalo Burger Area Manager 323 Course' });
-    this.courseCardStaging = page.getByRole('link', { name: 'Pici University Buffalo Burger Area Manager 323 Course' });
+    this.courseCardStaging = page.getByRole('link', { name: 'Chocolate Brownie Toy Trader 264' });
     this.pageHeading = page.getByRole('heading', { name: 'Courses', exact: true });
     this.coursesDropdownButton = page.getByRole('button', { name: 'Courses Available' });
     }

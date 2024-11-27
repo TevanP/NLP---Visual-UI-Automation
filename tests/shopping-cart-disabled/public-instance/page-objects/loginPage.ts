@@ -11,7 +11,7 @@ export class LoginPage {
   constructor(page: Page) {
     this.page = page;
     this.loginTab = page.getByRole('list').getByText('Log In')
-    this.loginButton = page.getByRole('button', { name: 'Login' });
+    this.loginButton = page.getByRole('button', { name: 'Log In' });
     this.email = page.getByPlaceholder('Email Address*');
     this.password = page.getByPlaceholder('Password*');
     this.signupTab = page.getByRole('link', { name: 'Sign Up' });

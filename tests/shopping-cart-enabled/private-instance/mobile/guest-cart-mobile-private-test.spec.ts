@@ -112,12 +112,4 @@ test('Private - Guest - Shopping Cart Enabled - Mobile', async ({ page }) => {
     // Assert - login page is matching
     await expect(page).toHaveScreenshot(env+'-login-page.png');
 
-/*
-    ////////////////////
-    //////  Login  /////
-    ////////////////////
-
-    // Login as learner.
-    await loginPage.login("tpatrick+qa-waitlist-test9@noodle.com","Testing1");
-*/
 });
