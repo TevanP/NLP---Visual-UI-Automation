@@ -3,7 +3,7 @@ on:
   workflow_dispatch
 
 env:
-  privateBaseUrl: 'https://noodle:OrecchiettE2022@staging-linguinelawschool-farfallelawfirm.noodle.com'
+  BASE_URL_CART_PRIVATE: '${{ vars.BASE_URL_CART_PARENT }}'
 
 jobs:
   test:
