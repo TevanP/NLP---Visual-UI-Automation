@@ -1,6 +1,10 @@
 name: Playwright Tests
 on:
   workflow_dispatch
+
+env:
+  BASE_URL_PRIVATE: 'https://noodle:OrecchiettE2022@staging-linguinelawschool-farfallelawfirm.noodle.com'
+
 jobs:
   test:
     timeout-minutes: 60
@@ -15,7 +19,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: publicBaseUrl=https://noodle:OrecchiettE2022@staging-linguinelawschool-rigatonilegalsolutions.noodle.com environment=staging npx playwright test guest-cart-desktop-public-test.spec.ts --headed --project=chromium-desktop
+      run: npx playwright test guest-cart-desktop-public-test.spec.ts --headed --project=chromium-desktop
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
