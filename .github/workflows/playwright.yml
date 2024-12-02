@@ -21,20 +21,20 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright Tests (Desktop)
+      - name: Run Playwright Tests (Desktop-Cart-Enabled)
         run: |
           echo "Running tests on ${{ secrets.ENVIRONMENT }} environment with chromium desktop"
           npx playwright test guest-cart-desktop-private-test.spec.ts --headed --project=chromium-desktop
         env:
-          privateBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
+          privateCartBaseUrl: ${{ secrets.PRIVATE_CART_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
 
-      - name: Run Playwright Tests (Mobile)
+      - name: Run Playwright Tests (Mobile-Cart-Enabled)
         run: |
           echo "Running tests on ${{ secrets.ENVIRONMENT }} environment with mobile"
           npx playwright test guest-cart-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari
         env:
-          privateBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
+          privateCartBaseUrl: ${{ secrets.PRIVATE_CART_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
 
       - uses: actions/upload-artifact@v4

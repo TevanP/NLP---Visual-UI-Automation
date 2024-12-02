@@ -19,7 +19,7 @@ test('Private - Learner - Shopping Cart Enabled - Desktop', async ({ page }) => 
     var privateLearnerUsername = process.env.privateLearnerUsername;
     var privateLearnerPassword = process.env.privateLearnerPassword;
 
-    await landingPage.goto(process.env.privateBaseUrl);
+    await landingPage.goto(process.env.privateCartBaseUrl);
 
     // Go to login page.
     await landingPage.loginButton.click();
