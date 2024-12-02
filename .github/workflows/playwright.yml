@@ -24,7 +24,7 @@ jobs:
       - name: Run Playwright Tests (Desktop)
         run: |
           echo "Running tests on ${{ secrets.ENVIRONMENT }} environment with chromium desktop"
-          npx playwright test guest-cart-desktop-private-test.spec.ts --headed --project=chromium-desktop --base-url=${{ secrets.PRIVATE_BASE_URL }}
+          npx playwright test guest-cart-desktop-private-test.spec.ts --headed --project=chromium-desktop
         env:
           privateBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
@@ -32,7 +32,7 @@ jobs:
       - name: Run Playwright Tests (Mobile)
         run: |
           echo "Running tests on ${{ secrets.ENVIRONMENT }} environment with mobile"
-          npx playwright test guest-cart-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari --base-url=${{ secrets.PRIVATE_BASE_URL }}
+          npx playwright test guest-cart-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari
         env:
           privateBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
