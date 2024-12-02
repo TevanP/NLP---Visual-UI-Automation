@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright Tests (Desktop-Private-Cart-Enabled)
 
 on:
   workflow_dispatch:  # Allow manual triggering
