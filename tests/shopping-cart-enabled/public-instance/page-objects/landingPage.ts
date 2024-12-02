@@ -15,7 +15,7 @@ export class LandingPage {
     this.signupButton = page.getByRole('button', { name: 'Sign Up' });
     this.coursesNavLink = page.getByRole('link', { name: 'Courses', exact: true });
     this.homeNavLink = page.getByRole('link', { name: 'Home', exact: true });
-    this.shoppingCartIcon = page.locator('a >> [href="/cart"]');
+    this.shoppingCartIcon = page.locator('[href="/cart"]');
     this.leftNav = page.getByRole('navigation');
   }
 
