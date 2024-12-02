@@ -24,10 +24,12 @@ jobs:
       - name: Run Playwright Tests (Mobile-Private-Cart-Enabled)
         run: |
           echo "Running tests on mobile"
-          npx playwright test guest-cart-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari
+          npx playwright test guest-cart-mobile-private-test.spec.ts earner-cart-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari
         env:
           privateCartBaseUrl: ${{ secrets.PRIVATE_CART_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
+          privateCartLearnerUsername: ${{ secrets.privateCartLearnerUsername }}
+          privateCartLearnerPassword: ${{ secrets.privateCartLearnerPassword }}
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
