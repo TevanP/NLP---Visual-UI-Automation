@@ -1,4 +1,4 @@
-name: Playwright Tests (Tablet-Private-Cart-Enabled)
+name: UI Tests (Tablet-Private-Cart-Enabled)
 
 on:
   workflow_dispatch:  # Allow manual triggering
