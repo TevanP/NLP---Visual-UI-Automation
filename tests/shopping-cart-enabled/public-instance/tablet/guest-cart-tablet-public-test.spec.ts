@@ -16,7 +16,7 @@ test('Public - Guest - Shopping Cart Enabled - Tablet', async ({ page }) => {
 
     var env = process.env.environment;
 
-    await landingPage.goto(process.env.publicBaseUrl);
+    await landingPage.goto(process.env.publicCartBaseUrl);
 
     //////////////////////////////
     //////  Guest Discovery  /////

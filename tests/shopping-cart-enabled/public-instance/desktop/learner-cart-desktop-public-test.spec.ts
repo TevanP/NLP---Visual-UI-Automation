@@ -18,10 +18,10 @@ test('Public - Learner - Shopping Cart Enabled - Desktop', async ({ page }) => {
     const signupPage = new SignupPage(page);
 
     var env = process.env.environment;
-    var publicLearnerUsername = process.env.publicLearnerUsername;
-    var publicLearnerPassword = process.env.publicLearnerPassword;
+    var publicLearnerUsername = process.env.publicCartLearnerUsername;
+    var publicLearnerPassword = process.env.publicCartLearnerPassword;
 
-    await landingPage.goto(process.env.publicBaseUrl);
+    await landingPage.goto(process.env.publicCartBaseUrl);
 
     // Go to login page.
     await landingPage.signupButton.click();

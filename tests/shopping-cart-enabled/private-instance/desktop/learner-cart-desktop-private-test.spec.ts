@@ -16,8 +16,8 @@ test('Private - Learner - Shopping Cart Enabled - Desktop', async ({ page }) => 
     const checkoutPage = new CheckoutPage(page);
 
     var env = process.env.environment;
-    var privateLearnerUsername = process.env.privateLearnerUsername;
-    var privateLearnerPassword = process.env.privateLearnerPassword;
+    var privateLearnerUsername = process.env.privateCartLearnerUsername;
+    var privateLearnerPassword = process.env.privateCartLearnerPassword;
 
     await landingPage.goto(process.env.privateCartBaseUrl);
 

@@ -16,10 +16,10 @@ test('Private - Learner - Shopping Cart Enabled - Mobile', async ({ page }) => {
     const checkoutPage = new CheckoutPage(page);
 
     var env = process.env.environment;
-    var privateLearnerUsername = process.env.privateLearnerUsername;
-    var privateLearnerPassword = process.env.privateLearnerPassword;
+    var privateLearnerUsername = process.env.privateCartLearnerUsername;
+    var privateLearnerPassword = process.env.privateCartLearnerPassword;
 
-    await landingPage.goto(process.env.privateBaseUrl);
+    await landingPage.goto(process.env.privateCartBaseUrl);
 
     // Go to login page.
     await landingPage.loginButton.click();
