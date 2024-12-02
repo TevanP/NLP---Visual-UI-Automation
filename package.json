@@ -2,7 +2,11 @@
   "name": "nlp---mobile-automation",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "private-guest-cart-enabled-desktop": "privateBaseUrl=https://noodle:OrecchiettE2022@staging-linguinelawschool-farfallelawfirm.noodle.com environment=staging npx playwright test guest-cart-desktop-private-test.spec.ts --headed --project=chromium-desktop",
+    "private-guest-cart-enabled-mobile": "privateBaseUrl=https://noodle:OrecchiettE2022@staging-linguinelawschool-farfallelawfirm.noodle.com environment=staging npx playwright test guest-cart-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari",
+    "private-guest-cart-enabled-tablet": "privateBaseUrl=https://noodle:OrecchiettE2022@staging-linguinelawschool-farfallelawfirm.noodle.com environment=staging npx playwright test guest-cart-tablet-private-test.spec.ts --headed --project=chromium-tablet"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
