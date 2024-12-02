@@ -1,27 +1,45 @@
 name: Playwright Tests
+
 on:
-  workflow_dispatch
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
   test:
     timeout-minutes: 60
     runs-on: windows-latest
+
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Visual UI Tests
-      run: |
-          echo "Running Staging - private-guest-cart-enabled-mobile - Tests"
-          npm run private-guest-cart-enabled-mobile
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright Tests (Desktop)
+        run: |
+          echo "Running tests on ${{ secrets.ENVIRONMENT }} environment with chromium desktop"
+          npx playwright test guest-cart-desktop-private-test.spec.ts --headed --project=chromium-desktop --base-url=${{ secrets.PRIVATE_BASE_URL }}
+        env:
+          privateBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
+          environment: ${{ secrets.ENVIRONMENT }}
+
+      - name: Run Playwright Tests (Mobile)
+        run: |
+          echo "Running tests on ${{ secrets.ENVIRONMENT }} environment with mobile"
+          npx playwright test guest-cart-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari --base-url=${{ secrets.PRIVATE_BASE_URL }}
+        env:
+          privateBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
+          environment: ${{ secrets.ENVIRONMENT }}
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
