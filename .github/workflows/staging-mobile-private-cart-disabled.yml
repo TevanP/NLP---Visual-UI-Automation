@@ -1,4 +1,4 @@
-name: UI Tests (Mobile-Private-Cart-Enabled)
+name: UI Tests (Mobile-Private-Cart-Disabled)
 
 on:
   workflow_dispatch:  # Allow manual triggering
@@ -21,15 +21,15 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
         
-      - name: Run Playwright Tests (Mobile-Private-Cart-Enabled)
+      - name: Run Playwright Tests (Mobile-Private-Cart-Disabled)
         run: |
           echo "Running tests on mobile"
-          npx playwright test guest-cart-mobile-private-test.spec.ts learner-cart-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari
+          npx playwright test guest-mobile-private-test.spec.ts learner-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari
         env:
-          privateCartBaseUrl: ${{ secrets.PRIVATE_CART_BASE_URL }}
+          privateCartBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
-          privateCartLearnerUsername: ${{ secrets.privateCartLearnerUsername }}
-          privateCartLearnerPassword: ${{ secrets.privateCartLearnerPassword }}
+          privateCartLearnerUsername: ${{ secrets.privateLearnerUsername }}
+          privateCartLearnerPassword: ${{ secrets.privateLearnerPassword }}
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
