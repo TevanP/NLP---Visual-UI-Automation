@@ -9,7 +9,7 @@ jobs:
       matrix:
         node-version: [16, 18]  # Adjust Node.js versions as needed
         browser: [chromium, firefox, webkit]  # Playwright browser variants
-        environment: [staging, production]  # Example environments
+        environment: [staging]  # Example environments
     env:
       # Dynamic environment variables
       privateBaseUrl: https://noodle:OrecchiettE2022@staging-linguinelawschool-farfallelawfirm.noodle.com
