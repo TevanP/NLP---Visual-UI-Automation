@@ -17,13 +17,8 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Visual UI Tests
       run: |
-          echo "Running tests on environment with browser"
-          privateBaseUrl="https://noodle:OrecchiettE2022@staging-linguinelawschool-farfallelawfirm.noodle.com"
-          environment="staging"
-          npx playwright test guest-cart-desktop-private-test.spec.ts --headed --project=chromium-desktop --base-url=$privateBaseUrl
-      env:
-          privateBaseUrl: "https://noodle:OrecchiettE2022@staging-linguinelawschool-farfallelawfirm.noodle.com"
-          environment: "staging"
+          echo "Running Staging Cart Enabled - Desktop - Guest - Tests"
+          privateBaseUrl="https://noodle:OrecchiettE2022@staging-linguinelawschool-farfallelawfirm.noodle.com" environment="staging" npx playwright test guest-cart-desktop-private-test.spec.ts --headed --project=chromium-desktop
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
