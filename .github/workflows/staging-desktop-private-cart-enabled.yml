@@ -24,10 +24,12 @@ jobs:
       - name: Run Playwright Tests (Desktop-Private-Cart-Enabled)
         run: |
           echo "Running tests on desktop"
-          npx playwright test guest-cart-desktop-private-test.spec.ts --headed --project=chromium-desktop
+          npx playwright test guest-cart-desktop-private-test.spec.ts learner-cart-desktop-private-test.spec.ts --headed --project=chromium-desktop
         env:
           privateCartBaseUrl: ${{ secrets.PRIVATE_CART_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
+          privateCartLearnerUsername: ${{ secrets.privateCartLearnerUsername }}
+          privateCartLearnerPassword: ${{ secrets.privateCartLearnerPassword }}
       
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
