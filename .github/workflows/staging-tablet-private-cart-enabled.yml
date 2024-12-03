@@ -28,8 +28,8 @@ jobs:
         env:
           privateCartBaseUrl: ${{ secrets.PRIVATE_CART_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
-          privateCartLearnerUsername: ${{ secrets.privateCartLearnerUsername }}
-          privateCartLearnerPassword: ${{ secrets.privateCartLearnerPassword }}
+          privateCartLearnerUsername: ${{ secrets.PRIVATE_CART_LEARNER_USERNAME }}
+          privateCartLearnerPassword: ${{ secrets.PRIVATE_CART_LEARNER_PASSWORD }}
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

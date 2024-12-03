@@ -1,4 +1,4 @@
-name: UI Tests (Tablet-Private-Cart-Disabled)
+name: UI Tests (Desktop-Public-Cart-Disabled)
 
 on:
   workflow_dispatch:  # Allow manual triggering
@@ -21,16 +21,16 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright Tests (Tablet-Private-Cart-Disabled)
+      - name: Run Playwright Tests (Desktop-Public-Cart-Disabled)
         run: |
-          echo "Running tests on tablet"
-          npx playwright test guest-tablet-private-test.spec.ts learner-tablet-private-test.spec.ts --headed --project=chromium-tablet
+          echo "Running tests on desktop"
+          npx playwright test guest-desktop-public-test.spec.ts learner-desktop-public-test.spec.ts --headed --project=chromium-desktop
         env:
-          privateCartBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
+          publicCartBaseUrl: ${{ secrets.PUBLIC_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
-          privateCartLearnerUsername: ${{ secrets.PRIVATE_LEARNER_USERNAME }}
-          privateCartLearnerPassword: ${{ secrets.PRIVATE_LEARNER_PASSWORD }}
-
+          publicCartLearnerUsername: ${{ secrets.PUBLIC_LEARNER_USERNAME }}
+          publicCartLearnerPassword: ${{ secrets.PUBLIC_LEARNER_PASSWORD }}
+      
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
