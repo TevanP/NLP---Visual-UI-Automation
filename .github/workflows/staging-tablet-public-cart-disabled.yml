@@ -26,10 +26,10 @@ jobs:
           echo "Running tests on tablet"
           npx playwright test guest-tablet-public-test.spec.ts learner-tablet-public-test.spec.ts --headed --project=chromium-tablet
         env:
-          publicCartBaseUrl: ${{ secrets.PUBLIC_BASE_URL }}
+          publicBaseUrl: ${{ secrets.PUBLIC_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
-          publicCartLearnerUsername: ${{ secrets.PUBLIC_LEARNER_USERNAME }}
-          publicCartLearnerPassword: ${{ secrets.PUBLIC_LEARNER_PASSWORD }}
+          publicLearnerUsername: ${{ secrets.PUBLIC_LEARNER_USERNAME }}
+          publicLearnerPassword: ${{ secrets.PUBLIC_LEARNER_PASSWORD }}
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

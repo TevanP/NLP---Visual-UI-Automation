@@ -26,10 +26,10 @@ jobs:
           echo "Running tests on desktop"
           npx playwright test guest-desktop-public-test.spec.ts learner-desktop-public-test.spec.ts --headed --project=chromium-desktop
         env:
-          publicCartBaseUrl: ${{ secrets.PUBLIC_BASE_URL }}
+          publicBaseUrl: ${{ secrets.PUBLIC_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
-          publicCartLearnerUsername: ${{ secrets.PUBLIC_LEARNER_USERNAME }}
-          publicCartLearnerPassword: ${{ secrets.PUBLIC_LEARNER_PASSWORD }}
+          publicLearnerUsername: ${{ secrets.PUBLIC_LEARNER_USERNAME }}
+          publicLearnerPassword: ${{ secrets.PUBLIC_LEARNER_PASSWORD }}
       
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

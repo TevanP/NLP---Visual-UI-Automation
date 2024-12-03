@@ -26,10 +26,10 @@ jobs:
           echo "Running tests on mobile"
           npx playwright test guest-mobile-private-test.spec.ts learner-mobile-private-test.spec.ts --headed --project=mobile-iphone-safari
         env:
-          privateCartBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
+          privateBaseUrl: ${{ secrets.PRIVATE_BASE_URL }}
           environment: ${{ secrets.ENVIRONMENT }}
-          privateCartLearnerUsername: ${{ secrets.PRIVATE_LEARNER_USERNAME }}
-          privateCartLearnerPassword: ${{ secrets.PRIVATE_LEARNER_PASSWORD }}
+          privateLearnerUsername: ${{ secrets.PRIVATE_LEARNER_USERNAME }}
+          privateLearnerPassword: ${{ secrets.PRIVATE_LEARNER_PASSWORD }}
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
